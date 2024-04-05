@@ -24,27 +24,18 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 label, select, button, pre {
   margin: 10px;
 }
 
 button {
   cursor: pointer;
+}
+
+.capture-section {
+
+  margin-bottom: 50px;
+
 }
 
 @keyframes App-logo-spin {
