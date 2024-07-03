@@ -119,21 +119,25 @@ const style = {
   const calculateScanningWorkersCost = (proposedScanningTime, teamMembers) => {
     const scanningDaysToCostMapping = {
       "0.5 day": 4, "1 day": 8, "1.5 days": 12, "2 days": 16, "2.5 days": 20,
-      "3 days": 24, "3.5 days": 28, "4 days": 32, "4.5 days": 36, "5 days": 40
+      "3 days": 24, "3.5 days": 28, "4 days": 32, "4.5 days": 36, "5 days": 40,
+      "5.5 days": 44, "6 days": 48, "6.5 days": 52, "7 days": 56, "7.5 days": 60,
+      "8 days": 64, "8.5 days": 68, "9 days": 72, "9.5 days": 76, "10 days": 80
     };
     const costPerDay = scanningDaysToCostMapping[proposedScanningTime] || 0;
     return costPerDay * 135 * parseInt(teamMembers);
   };
 
   const calculateProposedTime = (hours) => {
-    const thresholds = [4.5, 9, 13.5, 18, 22.5, 27, 31.5, 36, 40.5, 45];
-    const days = ["0.5 day", "1 day", "1.5 days", "2 days", "2.5 days", "3 days", "3.5 days", "4 days", "4.5 days", "5 days"];
+    const thresholds = [4.5, 9, 13.5, 18, 22.5, 27, 31.5, 36, 40.5, 45, 49.5, 54, 58.5, 63, 67.5, 72, 76.5, 81, 85.5, 90, 94.5, 99, 103.5];
+    const days = ["0.5 day", "1 day", "1.5 days", "2 days", "2.5 days", "3 days", "3.5 days", "4 days", "4.5 days", "5 days", "5.5 days", "6 days", "6.5 days", "7 days", "7.5 days", "8 days", "8.5 days", "9 days", "9.5 days", "10 days"];
     for (let i = 0; i < thresholds.length; i++) {
+      console.log(hours)
+      console.log(thresholds[i])
       if (hours <= thresholds[i]) {
         return days[i];
       }
     }
-    return "Over 5 days";
+    return "Over 10 days";
   };
 
 const saveAsPng = () => {
